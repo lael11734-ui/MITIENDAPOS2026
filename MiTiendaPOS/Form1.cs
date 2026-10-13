@@ -1,43 +1,47 @@
 using Microsoft.EntityFrameworkCore;
 using MiTiendaPOS.Data;
+using MiTiendaPOS.Forms;
+using System.Globalization;
 
 namespace MiTiendaPOS
 {
-    public partial class Form1 : Form
+    public partial class FrmPrincipal : Form
     {
-        public Form1()
+        public FrmPrincipal()
         {
             InitializeComponent();
+        }
+        //método generico para abrir cualquier formulario como ventana modal
+        private void AbrirFormulario<T>() where T : Form, new()
+        {
+            try
+            {
+                using var form = new T();
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("NO se pudo abrir el formulario", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /* using var contexto = new MiTiendaPOSContext();
-             MessageBox.Show("Contexto creado correctamente.");*/
-
-            try
-            {
-                using var contexto = new MiTiendaPOSContext();
-
-                bool conecta = contexto.Database.CanConnect();
-                int categorias = contexto.Categorias.Count();
-                int usuarios = contexto.Usuarios.Count();
-                int pendientes = contexto.Database.GetPendingMigrations().Count();
-
-                MessageBox.Show(
-                    $"Conexión a MiTiendaPOSDb: {(conecta ? "OK" : "FALLÓ")}\n" +
-                    $"Categorías registradas: {categorias}\n" +
-                    $"Usuarios registrados: {usuarios}\n" +
-                    $"Migraciones pendientes: {pendientes}",
-                    "MiTiendaPOS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }   // <- al salir del bloque try se ejecuta Dispose() del contexto
-                // El manejo de excepciones se profundiza en la Unidad 4
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al conectar: " + ex.Message, "MiTiendaPOS",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            var region = new CultureInfo("es-SV");
+            lblFecha.Text = DateTime.Now.ToString("dddd, " +
+                "dd 'de' MMMM 'de' yyyy", region);
+            lblEstado.Text = "Listo!";
         }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmCategorias form = new FrmCategorias();
+            form.ShowDialog();
+            //form.Show();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e) => AbrirFormulario<FrmVentas>();
     }
 }

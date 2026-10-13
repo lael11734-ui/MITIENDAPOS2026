@@ -56,6 +56,7 @@ namespace MiTiendaPOS.Data
                 .WithMany(v => v.Detalles)
                 .HasForeignKey(dv => dv.VentaId)
                 .OnDelete(DeleteBehavior.Restrict);
+                //.OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<DetalleVenta>()
                 .HasOne(dv => dv.Producto)
