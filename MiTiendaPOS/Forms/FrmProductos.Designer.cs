@@ -52,9 +52,12 @@ namespace MiTiendaPOS.Forms
             grpDatos.Controls.Add(lblCategoria);
             grpDatos.Controls.Add(lblNombre);
             grpDatos.Controls.Add(lblModo);
+            grpDatos.Controls.Add(btnEliminar);
+            grpDatos.Controls.Add(btnGuardar);
+            grpDatos.Controls.Add(btnNuevo);
             grpDatos.Location = new Point(20, 18);
             grpDatos.Name = "grpDatos";
-            grpDatos.Size = new Size(850, 145);
+            grpDatos.Size = new Size(240, 390);
             grpDatos.TabIndex = 0;
             grpDatos.TabStop = false;
             grpDatos.Text = "Datos del producto";
@@ -63,7 +66,7 @@ namespace MiTiendaPOS.Forms
             // 
             lblModo.AutoSize = true;
             lblModo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblModo.Location = new Point(18, 25);
+            lblModo.Location = new Point(12, 25);
             lblModo.Name = "lblModo";
             lblModo.Size = new Size(91, 15);
             lblModo.TabIndex = 0;
@@ -73,7 +76,7 @@ namespace MiTiendaPOS.Forms
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNombre.Location = new Point(18, 58);
+            lblNombre.Location = new Point(12, 58);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(57, 15);
             lblNombre.TabIndex = 1;
@@ -81,17 +84,17 @@ namespace MiTiendaPOS.Forms
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(18, 80);
+            txtNombre.Location = new Point(74, 55);
             txtNombre.MaxLength = 100;
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(260, 23);
+            txtNombre.Size = new Size(145, 23);
             txtNombre.TabIndex = 2;
             // 
             // lblCategoria
             // 
             lblCategoria.AutoSize = true;
             lblCategoria.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCategoria.Location = new Point(300, 58);
+            lblCategoria.Location = new Point(12, 105);
             lblCategoria.Name = "lblCategoria";
             lblCategoria.Size = new Size(67, 15);
             lblCategoria.TabIndex = 3;
@@ -101,16 +104,16 @@ namespace MiTiendaPOS.Forms
             // 
             cboCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cboCategoria.FormattingEnabled = true;
-            cboCategoria.Location = new Point(300, 80);
+            cboCategoria.Location = new Point(74, 102);
             cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(190, 23);
+            cboCategoria.Size = new Size(145, 23);
             cboCategoria.TabIndex = 4;
             // 
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
             lblPrecio.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblPrecio.Location = new Point(512, 58);
+            lblPrecio.Location = new Point(12, 153);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(47, 15);
             lblPrecio.TabIndex = 5;
@@ -121,16 +124,16 @@ namespace MiTiendaPOS.Forms
             nudPrecio.DecimalPlaces = 2;
             nudPrecio.Increment = 0.05M;
             nudPrecio.Maximum = 10000;
-            nudPrecio.Location = new Point(512, 80);
+            nudPrecio.Location = new Point(74, 150);
             nudPrecio.Name = "nudPrecio";
-            nudPrecio.Size = new Size(120, 23);
+            nudPrecio.Size = new Size(86, 23);
             nudPrecio.TabIndex = 6;
             // 
             // lblStock
             // 
             lblStock.AutoSize = true;
             lblStock.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblStock.Location = new Point(654, 58);
+            lblStock.Location = new Point(12, 201);
             lblStock.Name = "lblStock";
             lblStock.Size = new Size(43, 15);
             lblStock.TabIndex = 7;
@@ -139,9 +142,9 @@ namespace MiTiendaPOS.Forms
             // nudStock
             // 
             nudStock.Maximum = 100000;
-            nudStock.Location = new Point(654, 80);
+            nudStock.Location = new Point(74, 198);
             nudStock.Name = "nudStock";
-            nudStock.Size = new Size(90, 23);
+            nudStock.Size = new Size(86, 23);
             nudStock.TabIndex = 8;
             // 
             // chkActivo
@@ -149,7 +152,7 @@ namespace MiTiendaPOS.Forms
             chkActivo.AutoSize = true;
             chkActivo.Checked = true;
             chkActivo.CheckState = CheckState.Checked;
-            chkActivo.Location = new Point(765, 82);
+            chkActivo.Location = new Point(74, 245);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(57, 19);
             chkActivo.TabIndex = 9;
@@ -158,37 +161,37 @@ namespace MiTiendaPOS.Forms
             // 
             // buttons
             // 
-            btnNuevo = CrearBoton(btnNuevo, "Nuevo", 20, 178, btnNuevo_Click);
-            btnGuardar = CrearBoton(btnGuardar, "Guardar", 115, 178, btnGuardar_Click);
-            btnEliminar = CrearBoton(btnEliminar, "Eliminar", 210, 178, btnEliminar_Click);
+            btnNuevo = CrearBoton(btnNuevo, "Nuevo", 12, 285, btnNuevo_Click);
+            btnGuardar = CrearBoton(btnGuardar, "Guardar", 99, 285, btnGuardar_Click);
+            btnEliminar = CrearBoton(btnEliminar, "Eliminar", 12, 327, btnEliminar_Click);
             btnEliminar.Enabled = false;
             // 
             // filters
             // 
             lblBuscar.AutoSize = true;
             lblBuscar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblBuscar.Location = new Point(20, 230);
+            lblBuscar.Location = new Point(270, 25);
             lblBuscar.Name = "lblBuscar";
             lblBuscar.Size = new Size(51, 15);
             lblBuscar.TabIndex = 10;
             lblBuscar.Text = "Buscar:";
-            txtBuscar.Location = new Point(77, 227);
+            txtBuscar.Location = new Point(327, 22);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(260, 23);
+            txtBuscar.Size = new Size(160, 23);
             txtBuscar.TabIndex = 11;
             txtBuscar.TextChanged += Filtros_Changed;
             lblFiltro.AutoSize = true;
             lblFiltro.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblFiltro.Location = new Point(365, 230);
+            lblFiltro.Location = new Point(505, 25);
             lblFiltro.Name = "lblFiltro";
             lblFiltro.Size = new Size(67, 15);
             lblFiltro.TabIndex = 12;
             lblFiltro.Text = "Categoría:";
             cboFiltroCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cboFiltroCategoria.FormattingEnabled = true;
-            cboFiltroCategoria.Location = new Point(438, 227);
+            cboFiltroCategoria.Location = new Point(578, 22);
             cboFiltroCategoria.Name = "cboFiltroCategoria";
-            cboFiltroCategoria.Size = new Size(220, 23);
+            cboFiltroCategoria.Size = new Size(290, 23);
             cboFiltroCategoria.TabIndex = 13;
             cboFiltroCategoria.SelectedIndexChanged += Filtros_Changed;
             // 
@@ -198,13 +201,13 @@ namespace MiTiendaPOS.Forms
             dgvProductos.AllowUserToDeleteRows = false;
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Location = new Point(20, 270);
+            dgvProductos.Location = new Point(270, 65);
             dgvProductos.MultiSelect = false;
             dgvProductos.Name = "dgvProductos";
             dgvProductos.ReadOnly = true;
             dgvProductos.RowHeadersVisible = false;
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProductos.Size = new Size(850, 260);
+            dgvProductos.Size = new Size(630, 460);
             dgvProductos.TabIndex = 14;
             dgvProductos.CellClick += dgvProductos_CellClick;
             // 
@@ -218,9 +221,6 @@ namespace MiTiendaPOS.Forms
             Controls.Add(lblFiltro);
             Controls.Add(txtBuscar);
             Controls.Add(lblBuscar);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnGuardar);
-            Controls.Add(btnNuevo);
             Controls.Add(grpDatos);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
