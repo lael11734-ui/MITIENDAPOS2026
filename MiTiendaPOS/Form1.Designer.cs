@@ -86,6 +86,7 @@
             mnuProductos.Name = "mnuProductos";
             mnuProductos.Size = new Size(130, 22);
             mnuProductos.Text = "Productos";
+            mnuProductos.Click += mnuProductos_Click;
             // 
             // mnuClientes
             // 
@@ -174,6 +175,7 @@
             btnProductos.TabIndex = 3;
             btnProductos.Text = "Productos";
             btnProductos.UseVisualStyleBackColor = true;
+            btnProductos.Click += btnProductos_Click;
             // 
             // btnCategorias
             // 
